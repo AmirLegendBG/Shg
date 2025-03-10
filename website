@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your Code</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .claim-button {
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .claim-button:hover {
+            background-color: #333;
+        }
+        .claim-button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Embed YouTube video as background -->
+    <iframe class="background-video" src="https://www.youtube.com/embed/jFUVdBQCFYA?autoplay=1&mute=1&loop=1&playlist=jFUVdBQCFYA" frameborder="0" allow="autoplay; loop; muted;"></iframe>
+
+    <button class="claim-button" id="claimButton" onclick="claimCode()">Claim Your Code</button>
+
+    <script>
+        function claimCode() {
+            const button = document.getElementById('claimButton');
+            button.disabled = true;
+
+            const pastebinLinks = [
+                'https://pastebin.com/example1',
+                'https://pastebin.com/example2',
+                'https://pastebin.com/example3',
+                // Add more links as needed
+            ];
+
+            const randomLink = pastebinLinks[Math.floor(Math.random() * pastebinLinks.length)];
+            window.open(randomLink, '_blank');
+
+            setTimeout(() => {
+                button.disabled = false;
+            }, 60000);
+        }
+    </script>
+</body>
+</html>
